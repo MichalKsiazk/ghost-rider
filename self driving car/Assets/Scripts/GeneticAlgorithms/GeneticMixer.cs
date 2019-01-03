@@ -25,7 +25,7 @@ public class GeneticMixer : MonoBehaviour {
 
 	float best = 0;
 
-	void Start () 
+	void Start() 
 	{
 		currentGenome = 0;
 		currentGenerationIndex = 0;
@@ -41,7 +41,7 @@ public class GeneticMixer : MonoBehaviour {
 		componentInitialized = true;
 	}
 
-	void Update () 
+	void Update() 
 	{
 		WriteInfo();
 	}
@@ -112,42 +112,6 @@ public class GeneticMixer : MonoBehaviour {
 		return true;
 	}
 
-	public NeuralNetwork Mutate_1(NeuralNetwork ancestorNetwork, NeuralController _controller)
-	{
-
-		NeuralNetwork mixedNetwork = new NeuralNetwork(ancestorNetwork.networkComposition, true, _controller);
-
-		mixedNetwork.inputLayer.Mutate_1(ancestorNetwork.inputLayer);
-
-		for(int i = 0; i < mixedNetwork.hiddenLayers.Count; i++)
-		{
-			mixedNetwork.hiddenLayers[i].Mutate_1(ancestorNetwork.hiddenLayers[i]);
-		}
-
-		mixedNetwork.outputLayer.Mutate_1(ancestorNetwork.outputLayer);
-
-		return mixedNetwork;
-	}
-
-	public NeuralNetwork Mutate_2(NeuralNetwork ancestorNetwork, NeuralController _controller, float mutationRate)
-	{
-
-		MutationData data = new MutationData();
-
-		NeuralNetwork mixedNetwork = new NeuralNetwork(ancestorNetwork.networkComposition, true, _controller);
-
-		data += mixedNetwork.inputLayer.Mutate_2(ancestorNetwork.inputLayer, mutationRate);
-
-		for(int i = 0; i < mixedNetwork.hiddenLayers.Count; i++)
-		{
-			data += mixedNetwork.hiddenLayers[i].Mutate_2(ancestorNetwork.hiddenLayers[i], mutationRate);
-		}
-
-		data += mixedNetwork.outputLayer.Mutate_2(ancestorNetwork.outputLayer, mutationRate);
-		Debug.Log("MUTATION LOG " + data.AverageMutation().ToString());
-		return mixedNetwork;
-	}
-
 	public void SaveGenome(NeuralNetwork neuralNetwork)
 	{
 		geneticStorage.generations[currentGenerationIndex].genomes.Add(neuralNetwork);
@@ -159,6 +123,20 @@ public class GeneticMixer : MonoBehaviour {
 			geneticStorage.generations.Add(new Generation());
 		}
 	}
+
+	public void Mutate()
+	{
+		int bestFromLastGeneration = geneticStorage.FindBest(geneticStorage.generations[LastGenerationIndex()]);
+		NeuralNetwork ancestor = geneticStorage.GetNetwork(LastGenerationIndex(), bestFromLastGeneration);
+		controller.neuralNetwork = new RandomMutation(ancestor, controller).Mutate();
+	}
+
+	public int LastGenerationIndex()
+	{
+		return currentGenerationIndex - 1;
+	}
+
+
 }
 
 

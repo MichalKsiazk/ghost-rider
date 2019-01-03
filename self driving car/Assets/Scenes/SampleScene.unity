@@ -2212,9 +2212,9 @@ MonoBehaviour:
   vehicle: {fileID: 0}
   nodeTexture: {fileID: 21300000, guid: ebf15e0728c36a543914b915b6782cdc, type: 3}
   targetCanvas: {fileID: 521882604}
-  inputNodes: 4
-  hiddenLayers: 040000000400000004000000
-  outputNodes: 4
+  inputNodes: 0
+  hiddenLayers: 05000000
+  outputNodes: 2
 --- !u!114 &1135110592
 MonoBehaviour:
   m_ObjectHideFlags: 0

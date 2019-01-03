@@ -74,37 +74,4 @@ public class NeuralLayer
 			node.Reset();
 		}
 	}
-
-	public void Mutate_1(NeuralLayer ancestorLayer)
-	{
-		for(int n = 0; n < nodes.Count; n++)
-		{
-			nodes[n].bias = ancestorLayer.nodes[n].bias;
-			for(int w = 0; w < nodes[n].weights.Length; w++)
-			{
-				float ancestorWeight = ancestorLayer.nodes[n].weights[w];
-				nodes[n].Mutate_1(w, ancestorWeight);
-			}
-		}
-	}
-
-	public MutationData Mutate_2(NeuralLayer ancestorLayer, float mutationRate)
-	{
-
-		MutationData mutationData = new MutationData();
-
-		for(int n = 0; n < nodes.Count; n++)
-		{
-			nodes[n].bias = ancestorLayer.nodes[n].bias;
-			for(int w = 0; w < nodes[n].weights.Length; w++)
-			{
-				float ancestorWeight = ancestorLayer.nodes[n].weights[w];
-				float mutation = nodes[n].Mutate_2(w, ancestorLayer.nodes[n].weights[w], mutationRate);
-				mutationData.mutationRate += mutation;
-				mutationData.affectedWeights++;
-
-			}
-		}
-		return mutationData;
-	}
 }

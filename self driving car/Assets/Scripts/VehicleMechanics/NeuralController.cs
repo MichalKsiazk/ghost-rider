@@ -58,7 +58,7 @@ public class NeuralController : MonoBehaviour {
 		{
 			vehicle.Accelerate(neuralNetwork.outputLayer.nodes[0].outputs[0]);
 		}
-		vehicle.Steer(steer * 15);
+		vehicle.Steer(steer * 10);
 		//Debug.Log(steer);
 	}
 
@@ -100,12 +100,8 @@ public class NeuralController : MonoBehaviour {
 		else
 		{
 
-			int lastGenerationIndex = mixer.currentGenerationIndex - 1;
 
-			int bestFromLastGeneration = mixer.geneticStorage.FindBest(mixer.geneticStorage.generations[lastGenerationIndex]);
-
-			neuralNetwork = mixer.Mutate_2(mixer.geneticStorage.GetNetwork(lastGenerationIndex, bestFromLastGeneration), this, 0.07f);
-			//neuralNetwork = mixer.Mutate_1(mixer.geneticStorage.GetNetwork(lastGenerationIndex, bestFromLastGeneration), this);
+			mixer.Mutate();
 		}
 
 		//LogBestNetwork();
@@ -131,6 +127,4 @@ public class NeuralController : MonoBehaviour {
 		Debug.Log("mixer not found");
 		return false;
 	}
-
-
 }

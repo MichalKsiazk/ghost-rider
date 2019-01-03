@@ -63,6 +63,8 @@
      <Compile Include="Assets\Scripts\GeneticAlgorithms\GeneticStorage.cs" />
      <Compile Include="Assets\Scripts\GeneticAlgorithms\Genome.cs" />
      <Compile Include="Assets\Scripts\GeneticAlgorithms\Mutations\Mutation.cs" />
+     <Compile Include="Assets\Scripts\GeneticAlgorithms\Mutations\RandomMutation.cs" />
+     <Compile Include="Assets\Scripts\GeneticAlgorithms\Mutations\RangedMutation.cs" />
      <Compile Include="Assets\Scripts\NeuralNetworks\NetworkComposition.cs" />
      <Compile Include="Assets\Scripts\NeuralNetworks\NeuralDebugger.cs" />
      <Compile Include="Assets\Scripts\NeuralNetworks\NeuralLayer.cs" />
@@ -97,16 +99,16 @@
      <None Include="Assets\ProCore\ProBuilder\readme.txt" />
      <None Include="Assets\ProCore\ProBuilder\Shader\pb_SmoothingPreview.shader" />
  <Reference Include="UnityEditor.StandardEvents">
- <HintPath>C:/Users/mikakov/Documents/self driving car/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+ <HintPath>C:/Users/mikakov/Documents/ghost-rider/self driving car/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>C:/Users/mikakov/Documents/self driving car/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>C:/Users/mikakov/Documents/ghost-rider/self driving car/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>C:/Users/mikakov/Documents/self driving car/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+ <HintPath>C:/Users/mikakov/Documents/ghost-rider/self driving car/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>C:/Users/mikakov/Documents/self driving car/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>C:/Users/mikakov/Documents/ghost-rider/self driving car/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -304,19 +306,19 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
  </Reference>
  <Reference Include="ProBuilderCore-Unity5">
- <HintPath>C:/Users/mikakov/Documents/self driving car/Assets/ProCore/ProBuilder/Classes/ProBuilderCore-Unity5.dll</HintPath>
+ <HintPath>C:/Users/mikakov/Documents/ghost-rider/self driving car/Assets/ProCore/ProBuilder/Classes/ProBuilderCore-Unity5.dll</HintPath>
  </Reference>
  <Reference Include="ProBuilderMeshOps-Unity5">
- <HintPath>C:/Users/mikakov/Documents/self driving car/Assets/ProCore/ProBuilder/Classes/ProBuilderMeshOps-Unity5.dll</HintPath>
+ <HintPath>C:/Users/mikakov/Documents/ghost-rider/self driving car/Assets/ProCore/ProBuilder/Classes/ProBuilderMeshOps-Unity5.dll</HintPath>
  </Reference>
  <Reference Include="KdTreeLib">
- <HintPath>C:/Users/mikakov/Documents/self driving car/Assets/ProCore/ProBuilder/Classes/ClassesLib/KdTreeLib.dll</HintPath>
+ <HintPath>C:/Users/mikakov/Documents/ghost-rider/self driving car/Assets/ProCore/ProBuilder/Classes/ClassesLib/KdTreeLib.dll</HintPath>
  </Reference>
  <Reference Include="pb_Stl">
- <HintPath>C:/Users/mikakov/Documents/self driving car/Assets/ProCore/ProBuilder/Classes/ClassesLib/pb_Stl.dll</HintPath>
+ <HintPath>C:/Users/mikakov/Documents/ghost-rider/self driving car/Assets/ProCore/ProBuilder/Classes/ClassesLib/pb_Stl.dll</HintPath>
  </Reference>
  <Reference Include="Poly2Tri">
- <HintPath>C:/Users/mikakov/Documents/self driving car/Assets/ProCore/ProBuilder/Classes/ClassesLib/Poly2Tri.dll</HintPath>
+ <HintPath>C:/Users/mikakov/Documents/ghost-rider/self driving car/Assets/ProCore/ProBuilder/Classes/ClassesLib/Poly2Tri.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Analytics">
  <HintPath>C:/Users/mikakov/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>

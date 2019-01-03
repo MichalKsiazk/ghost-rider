@@ -91,21 +91,4 @@ public class NeuralNode
 			weights[i] = Random.Range(0.0f, 1.0f);
 		}
 	}
-
-	public void Mutate_1(int weightIndex, float ancestorWeight)
-	{
-		float mutation = Random.Range(0.0f, 1.0f); 
-
-		weights[weightIndex] = (ancestorWeight + mutation) / 2;
-	}
-
-	public float Mutate_2(int weightIndex, float ancestorWeight, float mutationRate)
-	{
-
-		float mutation = Random.Range(-mutationRate, mutationRate);
-
-		weights[weightIndex] = Mathf.Clamp01(ancestorWeight + mutation);
-
-		return mutation;
-	}
 }
