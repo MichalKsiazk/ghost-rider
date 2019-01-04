@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NeuralDebugger : MonoBehaviour 
+public class NeuralDebugger : MonoBehaviour
 {
 
 
@@ -80,23 +80,25 @@ public class NeuralDebugger : MonoBehaviour
 	}
 
 
-	void DrawLayer(NeuralLayer NeuralLayer, List<NodeRenderer> debuggerLayer, ref float leftMargin, float topMargin)
+	void DrawLayer(NeuralLayer neuralLayer, List<NodeRenderer> debuggerLayer, ref float leftMargin, float topMargin)
 	{
 
 		float verticalShift = 0;
 
-		if(NeuralLayer.nodes.Count % 2 == 0)
+		if(neuralLayer.nodes.Count % 2 == 0)
 		{
 			topMargin += 25;
 		}
 
-		for(int i = 0; i < NeuralLayer.nodes.Count; i++)
+		for(int i = 0; i < neuralLayer.nodes.Count; i++)
 		{
 
 			GameObject node = new GameObject("node" + i.ToString());
-
 			NodeRenderer nodeRenderer = new NodeRenderer(node.AddComponent<Image>() as Image);
 			nodeRenderer.parent = new GameObject("node" + i.ToString());
+			NodeDebugger nodeDebugger = nodeRenderer.parent.AddComponent<NodeDebugger>();
+			nodeDebugger.Init(neuralLayer.nodes[i]);
+
 			nodeRenderer.parent.transform.SetParent(targetCanvas.transform);
 			node.transform.SetParent(nodeRenderer.parent.transform);
 
@@ -113,7 +115,7 @@ public class NeuralDebugger : MonoBehaviour
 
 			if(i % 2 == 0)
 			{
-				verticalShift +=60;
+				verticalShift += 60;
 			}
 
 			SetupTextLabel(node, nodeRenderer);
@@ -156,6 +158,8 @@ public class NeuralDebugger : MonoBehaviour
 				float v = targetCanvas.gameObject.GetComponent<RectTransform>().rect.width;
 
 				Vector2 midpoint = new Vector2(((a.x + b.x) / 2), ((a.y + b.y) / 2));
+
+
 
 				connection.rectTransform.sizeDelta = new Vector2(lenght - nodeSize, 2);
 				connection.rectTransform.position = midpoint;

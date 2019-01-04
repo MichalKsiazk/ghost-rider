@@ -50,7 +50,9 @@ public class NeuralController : MonoBehaviour {
 	{
 		sensorInputs = sensors.GetSensorInputs();
 
-		float steer = neuralNetwork.outputLayer.nodes[1].outputs[0] * 2 - 0.5f;
+		float steer = neuralNetwork.outputLayer.nodes[1].outputs[0];
+
+		steer = Mathf.Clamp(steer, -1.0f, 1.0f);
 
 		List<float> packedSensorInputs = SerializedInputData(sensorInputs, sensors.vehicleSpeed);
 		neuralNetwork.Action(packedSensorInputs);
@@ -100,12 +102,16 @@ public class NeuralController : MonoBehaviour {
 		else
 		{
 
-
-			mixer.Mutate();
+			if(mixer.noRegression && mixer.currentGenome == 0)
+			{
+				Debug.Log("ancestor copied without mutation");
+				neuralNetwork = mixer.FindBestAncestor();
+			}
+			else
+			{
+				mixer.Mutate();
+			}
 		}
-
-		//LogBestNetwork();
-
 	}
 
 	void LogBestNetwork()

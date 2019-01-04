@@ -28,7 +28,10 @@ public class Mutation {
 			data += MutateLayer(mixedNetwork.hiddenLayers[i], ancestorNetwork.hiddenLayers[i]);
 		}
 
-		data += MutateLayer(mixedNetwork.outputLayer, ancestorNetwork.outputLayer);
+		//data += MutateLayer(mixedNetwork.outputLayer, ancestorNetwork.outputLayer);
+
+
+		Debug.Log(ancestorNetwork.inputLayer.nodes[0].weights[0].ToString() + " " + mixedNetwork.inputLayer.nodes[0].weights[0].ToString());
 
 		return mixedNetwork;
 	}

@@ -227,6 +227,9 @@ MonoBehaviour:
   generationSize: 10
   currentGenome: 0
   currentGenerationIndex: 0
+  mutationOptions: 0
+  mutationRate: 0
+  noRegression: 0
 --- !u!114 &66547429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1596,6 +1599,9 @@ MonoBehaviour:
   generationSize: 10
   currentGenome: 0
   currentGenerationIndex: 0
+  mutationOptions: 0
+  mutationRate: 0
+  noRegression: 0
 --- !u!114 &1019583543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2129,7 +2135,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1135110585}
   m_LocalRotation: {x: -0, y: -0.8697441, z: -0, w: -0.49350297}
-  m_LocalPosition: {x: -24.6, y: 8.88, z: 77.9}
+  m_LocalPosition: {x: -11.1, y: 8.88, z: 100.5}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children:
   - {fileID: 42938667}
@@ -2169,7 +2175,7 @@ MonoBehaviour:
     ray_dst: 8
     root_pos: {x: 0, y: 0, z: 0}
     ray_target: {x: 0, y: 0, z: 0}
-    raycastDistance: 6.962235
+    raycastDistance: 7.8921256
   - x_shift: -4
     y_shift: 0
     z_shift: -2
@@ -2177,7 +2183,7 @@ MonoBehaviour:
     ray_dst: 8
     root_pos: {x: 0, y: 0, z: 0}
     ray_target: {x: 0, y: 0, z: 0}
-    raycastDistance: 5.912229
+    raycastDistance: 0.49951905
   - x_shift: -4
     y_shift: 0
     z_shift: 2
@@ -2185,7 +2191,7 @@ MonoBehaviour:
     ray_dst: 8
     root_pos: {x: 0, y: 0, z: 0}
     ray_target: {x: 0, y: 0, z: 0}
-    raycastDistance: 3.5348928
+    raycastDistance: 4.613465
   - x_shift: -4
     y_shift: 0
     z_shift: -1
@@ -2193,7 +2199,7 @@ MonoBehaviour:
     ray_dst: 8
     root_pos: {x: 0, y: 0, z: 0}
     ray_target: {x: 0, y: 0, z: 0}
-    raycastDistance: 9.132826
+    raycastDistance: 0.34519702
   rot: 89.2
   vehicleTouchingWalls: 0
   vehicleCrashed: 0
@@ -2254,9 +2260,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6f66bfba222578458d3feb7b22122ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generationSize: 10
+  generationSize: 4
   currentGenome: 0
   currentGenerationIndex: 0
+  mutationOptions: 1
+  mutationRate: 0.01
+  noRegression: 0
 --- !u!1 &1313458581
 GameObject:
   m_ObjectHideFlags: 0
@@ -2597,7 +2606,7 @@ Transform:
   m_GameObject: {fileID: 1372341187}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.5027943, y: 6.3254304, z: -9.4239235}
-  m_LocalScale: {x: 0.7, y: 1, z: 0.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2022771926}
   m_Father: {fileID: 0}

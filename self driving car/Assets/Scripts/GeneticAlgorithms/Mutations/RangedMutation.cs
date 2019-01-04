@@ -24,7 +24,8 @@ public class RangedMutation : Mutation {
 
 		MutationData data = new MutationData();
 
-		node.bias = (ancestorNode.bias + Random.Range(-mutationRate, mutationRate)) / 2;
+		node.bias = (ancestorNode.bias + Random.Range(-mutationRate, mutationRate));
+		node.bias = Mathf.Clamp01(node.bias);
 
 		for(int i = 0; i < node.weights.Length; i++)
 		{

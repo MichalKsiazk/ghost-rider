@@ -71,6 +71,7 @@
      <Compile Include="Assets\Scripts\NeuralNetworks\NeuralNetwork.cs" />
      <Compile Include="Assets\Scripts\NeuralNetworks\NeuralNode.cs" />
      <Compile Include="Assets\Scripts\NeuralNetworks\NeuralUtils.cs" />
+     <Compile Include="Assets\Scripts\NodeDebugger.cs" />
      <Compile Include="Assets\Scripts\ReloadingSystem.cs" />
      <Compile Include="Assets\Scripts\Vehicle.cs" />
      <Compile Include="Assets\Scripts\VehicleMechanics\ManualController.cs" />

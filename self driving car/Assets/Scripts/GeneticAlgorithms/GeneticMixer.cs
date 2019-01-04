@@ -23,7 +23,12 @@ public class GeneticMixer : MonoBehaviour {
 	RectTransform backgroundPanel;
 	Text outputText;
 
+	[HideInInspector] public MutationOptions mutationOptions;
+	[HideInInspector] public float mutationRate;
+
 	float best = 0;
+
+	[HideInInspector] public bool noRegression;
 
 	void Start() 
 	{
@@ -126,9 +131,19 @@ public class GeneticMixer : MonoBehaviour {
 
 	public void Mutate()
 	{
-		int bestFromLastGeneration = geneticStorage.FindBest(geneticStorage.generations[LastGenerationIndex()]);
-		NeuralNetwork ancestor = geneticStorage.GetNetwork(LastGenerationIndex(), bestFromLastGeneration);
-		controller.neuralNetwork = new RandomMutation(ancestor, controller).Mutate();
+
+		NeuralNetwork ancestor = FindBestAncestor();
+
+		switch(mutationOptions)
+		{
+			case MutationOptions.Random_Mutation:
+				controller.neuralNetwork = new RandomMutation(ancestor, controller).Mutate();
+				break;
+			case MutationOptions.Ranged_Mutation:
+				//Debug.Log("Ranged Mutation");
+				controller.neuralNetwork = new RangedMutation(ancestor, controller, mutationRate).Mutate();
+				break;
+		}
 	}
 
 	public int LastGenerationIndex()
@@ -136,35 +151,46 @@ public class GeneticMixer : MonoBehaviour {
 		return currentGenerationIndex - 1;
 	}
 
+	public NeuralNetwork FindBestAncestor()
+	{
+		int bestFromLastGeneration = geneticStorage.FindBest(geneticStorage.generations[LastGenerationIndex()]);
+		return geneticStorage.GetNetwork(LastGenerationIndex(), bestFromLastGeneration);
+	}
 
 }
 
 
 
 public class MutationData
+{
+	public float mutationRate;
+	public float affectedWeights;
+	
+	public MutationData()
 	{
-		public float mutationRate;
-		public float affectedWeights;
-		
-		public MutationData()
-		{
-			mutationRate = 0;
-			affectedWeights = 0;
-		}
-
-		public static MutationData operator+ (MutationData a, MutationData b)
-		{
-
-			MutationData addedData = new MutationData();
-
-			addedData.mutationRate = a.mutationRate + b.mutationRate;
-			addedData.affectedWeights = a.affectedWeights + b.affectedWeights;
-
-			return addedData;
-		}
-
-		public float AverageMutation()
-		{
-			return mutationRate / affectedWeights;
-		}
+		mutationRate = 0;
+		affectedWeights = 0;
 	}
+
+	public static MutationData operator+ (MutationData a, MutationData b)
+	{
+
+		MutationData addedData = new MutationData();
+
+		addedData.mutationRate = a.mutationRate + b.mutationRate;
+		addedData.affectedWeights = a.affectedWeights + b.affectedWeights;
+
+		return addedData;
+	}
+
+	public float AverageMutation()
+	{
+		return mutationRate / affectedWeights;
+	}
+}
+
+public enum MutationOptions
+{
+	Random_Mutation,
+	Ranged_Mutation
+}

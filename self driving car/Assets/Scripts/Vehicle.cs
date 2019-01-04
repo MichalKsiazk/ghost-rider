@@ -17,8 +17,8 @@ public class Vehicle : MonoBehaviour {
 	public WheelCollider backLeftWheel, backRightWheel;
 	public Transform frontLeftTransform, frontRightTransform;
 	public Transform backLeftTransform, backRightTransform;
-	public float maxSteerAngle = 30;
-	public float motorForce = 50;	
+	[Range(0,40)]public float maxSteerAngle;
+	public float motorForce;	
 	public float velocity;
 	
 	[Range(100,10000)]
